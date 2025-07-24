@@ -1,7 +1,7 @@
 package com.ayaan.myapplication.ui.funds
 
 import com.ayaan.myapplication.domain.GetTopFundsUseCase
-import com.ayaan.myapplication.ui.state.FundListState
+import com.ayaan.myapplication.ui.funds.FundListState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow

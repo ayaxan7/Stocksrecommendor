@@ -1,4 +1,4 @@
-package com.ayaan.myapplication.ui.state
+package com.ayaan.myapplication.ui.funds
 
 import com.ayaan.myapplication.data.model.FundMetrics
 

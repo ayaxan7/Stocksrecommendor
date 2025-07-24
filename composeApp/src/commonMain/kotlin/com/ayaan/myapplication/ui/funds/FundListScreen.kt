@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.ayaan.myapplication.data.model.FundMetrics
 import com.ayaan.myapplication.data.model.SharpeRatioCategory
 import com.ayaan.myapplication.data.model.getSharpeRatioCategory
-import com.ayaan.myapplication.ui.state.FundListState
+import com.ayaan.myapplication.ui.funds.FundListState
 import com.ayaan.myapplication.util.formatPct
 import com.ayaan.myapplication.util.formatSharpeRatio
 import androidx.compose.material.pullrefresh.PullRefreshIndicator

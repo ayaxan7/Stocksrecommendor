@@ -1,5 +1,6 @@
 package com.ayaan.myapplication.network
 
+import com.ayaan.myapplication.data.model.ApiHealthResponse
 import com.ayaan.myapplication.data.model.BenchmarkAnalysisResponse
 import com.ayaan.myapplication.data.model.FundMetrics
 import com.ayaan.myapplication.data.model.SmartAdvisorResponse
@@ -19,6 +20,11 @@ interface FundApi {
         minAlpha: Double? = null,
         maxVolatility: Double? = null
     ): SmartAdvisorResponse
+
+    /**
+     * Checks if the API service is ready and responsive
+     */
+    suspend fun checkApiHealth(): ApiHealthResponse
 }
 
 /**
@@ -45,5 +51,9 @@ class FundApiImpl(private val client: HttpClient) : FundApi {
             minAlpha?.let { parameter("min_alpha", it) }
             maxVolatility?.let { parameter("max_volatility", it) }
         }.body()
+    }
+
+    override suspend fun checkApiHealth(): ApiHealthResponse {
+        return client.get("${baseUrl()}/").body()
     }
 }
