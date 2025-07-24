@@ -1,6 +1,8 @@
 package com.ayaan.myapplication.network
 
+import com.ayaan.myapplication.data.model.BenchmarkAnalysisResponse
 import com.ayaan.myapplication.data.model.FundMetrics
+import com.ayaan.myapplication.data.model.SmartAdvisorResponse
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*
@@ -10,6 +12,13 @@ import io.ktor.client.request.*
  */
 interface FundApi {
     suspend fun getTop5SmallCap(): List<FundMetrics>
+    suspend fun getTop5SmallCapBenchmark(): BenchmarkAnalysisResponse
+    suspend fun getSmartAdvisor(
+        riskTolerance: String,
+        investmentHorizon: String,
+        minAlpha: Double? = null,
+        maxVolatility: Double? = null
+    ): SmartAdvisorResponse
 }
 
 /**
@@ -18,5 +27,23 @@ interface FundApi {
 class FundApiImpl(private val client: HttpClient) : FundApi {
     override suspend fun getTop5SmallCap(): List<FundMetrics> {
         return client.get("${baseUrl()}/top5smallcap").body()
+    }
+
+    override suspend fun getTop5SmallCapBenchmark(): BenchmarkAnalysisResponse {
+        return client.get("${baseUrl()}/top5smallcap-benchmark").body()
+    }
+
+    override suspend fun getSmartAdvisor(
+        riskTolerance: String,
+        investmentHorizon: String,
+        minAlpha: Double?,
+        maxVolatility: Double?
+    ): SmartAdvisorResponse {
+        return client.get("${baseUrl()}/smart-advisor") {
+            parameter("risk_tolerance", riskTolerance)
+            parameter("investment_horizon", investmentHorizon)
+            minAlpha?.let { parameter("min_alpha", it) }
+            maxVolatility?.let { parameter("max_volatility", it) }
+        }.body()
     }
 }

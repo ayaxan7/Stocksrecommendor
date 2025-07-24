@@ -116,9 +116,9 @@ android {
         // Add BuildConfig field
         buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
     }
-buildFeatures{
-    buildConfig=true
-}
+    buildFeatures{
+        buildConfig=true
+    }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -138,7 +138,6 @@ buildFeatures{
 }
 
 dependencies {
-    implementation(project(":composeApp"))
     debugImplementation(compose.uiTooling)
 }
 
