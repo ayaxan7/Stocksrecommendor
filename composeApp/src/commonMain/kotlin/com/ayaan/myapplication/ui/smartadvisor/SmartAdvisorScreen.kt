@@ -12,6 +12,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.ayaan.myapplication.ui.components.*
+import com.ayaan.myapplication.ui.smartadvisor.components.InvestmentHorizonOption
+import com.ayaan.myapplication.ui.smartadvisor.components.RiskToleranceOption
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -205,6 +207,9 @@ fun SmartAdvisorScreen(
                                 Text("Get Recommendations")
                             }
                         }
+                        item {
+                            Spacer(modifier = Modifier.height(64.dp)) // Adjust height as needed
+                        }
                     }
                 }
 
@@ -334,6 +339,9 @@ fun SmartAdvisorScreen(
                                 Text("Reset Parameters")
                             }
                         }
+                        item {
+                            Spacer(modifier = Modifier.height(64.dp)) // Adjust height as needed
+                        }
                     }
                 }
             }
@@ -341,60 +349,4 @@ fun SmartAdvisorScreen(
     }
 }
 
-@Composable
-fun RiskToleranceOption(
-    title: String,
-    description: String,
-    isSelected: Boolean,
-    onClick: () -> Unit
-) {
-    FilterChip(
-        selected = isSelected,
-        onClick = onClick,
-        label = {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.padding(vertical = 8.dp)
-            ) {
-                Text(
-                    text = title,
-                    style = MaterialTheme.typography.bodyMedium,
-                    fontWeight = androidx.compose.ui.text.font.FontWeight.Bold
-                )
-                Text(
-                    text = description,
-                    style = MaterialTheme.typography.bodySmall
-                )
-            }
-        }
-    )
-}
 
-@Composable
-fun InvestmentHorizonOption(
-    title: String,
-    description: String,
-    isSelected: Boolean,
-    onClick: () -> Unit
-) {
-    FilterChip(
-        selected = isSelected,
-        onClick = onClick,
-        label = {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier.padding(vertical = 8.dp)
-            ) {
-                Text(
-                    text = title,
-                    style = MaterialTheme.typography.bodyMedium,
-                    fontWeight = androidx.compose.ui.text.font.FontWeight.Bold
-                )
-                Text(
-                    text = description,
-                    style = MaterialTheme.typography.bodySmall
-                )
-            }
-        }
-    )
-}

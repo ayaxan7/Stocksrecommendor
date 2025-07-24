@@ -8,11 +8,10 @@ import com.ayaan.myapplication.domain.GetTopFundsUseCase
 import com.ayaan.myapplication.network.FundApi
 import com.ayaan.myapplication.network.FundApiImpl
 import com.ayaan.myapplication.network.createHttpClient
-import com.ayaan.myapplication.ui.FundListViewModel
+import com.ayaan.myapplication.ui.funds.FundListViewModel
 import com.ayaan.myapplication.ui.benchmark.BenchmarkAnalysisViewModel
 import com.ayaan.myapplication.ui.smartadvisor.SmartAdvisorViewModel
 import org.koin.core.KoinApplication
-import org.koin.core.context.startKoin
 import org.koin.core.module.Module
 import org.koin.dsl.module
 

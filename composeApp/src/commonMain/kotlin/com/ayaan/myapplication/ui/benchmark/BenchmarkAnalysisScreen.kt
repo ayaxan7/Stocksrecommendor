@@ -120,6 +120,9 @@ fun BenchmarkAnalysisScreen(viewModel: BenchmarkAnalysisViewModel) {
                                 avoid = data.recommendationGuide.AVOID
                             )
                         }
+                        item {
+                            Spacer(modifier = Modifier.height(64.dp)) // Adjust height as needed
+                        }
                     }
                     AppLogger.d("BenchmarkAnalysisScreen", "Current state: $state")
                 }

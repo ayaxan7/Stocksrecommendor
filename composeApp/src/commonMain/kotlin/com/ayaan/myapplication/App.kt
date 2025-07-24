@@ -1,16 +1,13 @@
 package com.ayaan.myapplication
 
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.List
 import androidx.compose.material.icons.filled.Analytics
-import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.SmartToy
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Modifier
-import com.ayaan.myapplication.ui.FundListScreen
-import com.ayaan.myapplication.ui.FundListViewModel
+import com.ayaan.myapplication.ui.funds.FundListScreen
+import com.ayaan.myapplication.ui.funds.FundListViewModel
 import com.ayaan.myapplication.ui.benchmark.BenchmarkAnalysisScreen
 import com.ayaan.myapplication.ui.benchmark.BenchmarkAnalysisViewModel
 import com.ayaan.myapplication.ui.smartadvisor.SmartAdvisorScreen

@@ -1,6 +1,5 @@
-package com.ayaan.myapplication.ui
+package com.ayaan.myapplication.ui.funds
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -171,8 +170,13 @@ fun FundList(funds: List<FundMetrics>, modifier: Modifier = Modifier) {
             items(sortedFunds) { fund ->
                 FundCard(fund = fund)
             }
+            item {
+                Spacer(modifier = Modifier.height(64.dp)) // Adjust height as needed
+            }
         }
+
     }
+//    Spacer(modifier = Modifier.height(16.dp)) // Add some space at the bottom
 }
 
 @Composable
