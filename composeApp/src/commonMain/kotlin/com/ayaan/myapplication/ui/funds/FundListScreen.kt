@@ -22,6 +22,7 @@ import androidx.compose.material.pullrefresh.pullRefresh
 import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Refresh
+import com.ayaan.myapplication.AppLogger
 import com.ayaan.myapplication.ui.components.MetricItem
 
 enum class SortOption {
@@ -79,6 +80,7 @@ fun FundListScreen(viewModel: FundListViewModel) {
                 }
 
                 is FundListState.Error -> {
+                    AppLogger.d("FundListScreen", "Error loading funds: ${(state as FundListState.Error).message}")
                     Column(
                         modifier = Modifier
                             .align(Alignment.Center)
@@ -98,6 +100,7 @@ fun FundListScreen(viewModel: FundListViewModel) {
 
                 is FundListState.Success -> {
                     val funds = (state as FundListState.Success).funds
+                    AppLogger.d("FundListScreen", "Loaded ${funds.size} funds ${funds.toList()}")
                     FundList(funds = funds)
                 }
             }
